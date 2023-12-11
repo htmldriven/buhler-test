@@ -15,9 +15,8 @@ import { CurrentDateTimeComponent } from '../../../current-date-time/current-dat
   templateUrl: './header-info-section.component.html',
 })
 export class HeaderInfoSectionComponent {
-  readonly currentDateTimeFormat: CurrentDateTimeComponent['format'] = signal(
-    'dd.MM.YYYY HH:mm:ss',
-  );
+  readonly currentDateTimeFormat: CurrentDateTimeComponent['format'] =
+    signal('dd.MM.YYYY HH:mm');
 
   readonly username: WritableSignal<string | null> = signal('Operator');
 }
