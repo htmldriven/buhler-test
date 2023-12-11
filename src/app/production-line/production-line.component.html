@@ -1,0 +1,19 @@
+<ul
+  [ngClass]="{
+    'machine-list': true,
+    'navigation-mode': mode() === productionLineMode.Navigation
+  }"
+>
+  @for (machine of machines(); track machine.id; let isLast = $last) {
+    <li class="machine-list-item">
+      <app-machine
+        class="machine"
+        [iconDisabled]="mode() === productionLineMode.Navigation"
+        [machine]="machine"
+      />
+      @if (mode() === productionLineMode.Overview && !isLast) {
+        <div class="connector"></div>
+      }
+    </li>
+  }
+</ul>

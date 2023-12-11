@@ -1,0 +1,23 @@
+// general theming
+$primary-brand-color: #009e99;
+$secondary-brand-color: #dcdcdc;
+$primary-font-family: sans-serif;
+$primary-text-color: #323232;
+$danger-component-color: #fe3636;
+$danger-component-text-color: #fff;
+$success-component-text-color: #83ab30;
+$warning-component-color: #ff9704;
+$warning-component-text-color: #fff;
+
+// breakpoints
+$media-breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px,
+);
+
+// component specifics
+$production-line-connector-size: 100px; // represents length of the main axis
+$production-line-connector-width: 3px; // represents length of the secondary axis

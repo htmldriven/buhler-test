@@ -1,0 +1,18 @@
+@mixin base-flex-layout(
+  $align-items: stretch,
+  $box-sizing: border-box,
+  $flex-direction: column,
+  $flex-wrap: nowrap,
+  $justify-content: flex-start,
+  $row-gap: 20px,
+  $column-gap: 20px
+) {
+  align-items: $align-items;
+  column-gap: $column-gap;
+  box-sizing: $box-sizing;
+  display: flex;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
+  justify-content: $justify-content;
+  row-gap: $row-gap;
+}

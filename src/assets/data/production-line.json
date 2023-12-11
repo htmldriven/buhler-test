@@ -1,0 +1,28 @@
+{
+  "machines": [
+    {
+      "icon": "system_update_alt",
+      "id": "4ed50661-91b0-4afc-b06e-3df46f591478",
+      "name": "Scale",
+      "status": "running"
+    },
+    {
+      "icon": "fact_check",
+      "id": "74475b29-c085-4aab-b2cc-ca82fb408563",
+      "name": "Attacher",
+      "status": "alarm"
+    },
+    {
+      "icon": "call_to_action",
+      "id": "b5b447a4-7588-454d-af3d-690a1dcf1c69",
+      "name": "Packer",
+      "status": "running"
+    },
+    {
+      "icon": "grid_on",
+      "id": "15e106b8-585b-4a2a-9c16-98ea40119459",
+      "name": "Closer",
+      "status": "warning"
+    }
+  ]
+}

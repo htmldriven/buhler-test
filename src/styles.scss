@@ -1,0 +1,17 @@
+@use './assets/style/layout' as layout;
+@use './assets/style/variables' as variables;
+
+html {
+  @include layout.base-flex-layout();
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  flex-grow: 1;
+  font-family: variables.$primary-font-family;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,24 @@
+@use '../../../../../../assets/style/layout' as layout;
+@use '../../../../../../assets/style/variables' as variables;
+
+:host {
+  @include layout.base-flex-layout($column-gap: 40px, $flex-direction: row);
+
+  color: variables.$primary-text-color;
+
+  .date-time-section {
+    @include layout.base-flex-layout(
+      $align-items: center,
+      $column-gap: 8px,
+      $flex-direction: row
+    );
+  }
+
+  .user-section {
+    @include layout.base-flex-layout(
+      $align-items: center,
+      $column-gap: 8px,
+      $flex-direction: row
+    );
+  }
+}

@@ -1,0 +1,11 @@
+@if (status) {
+  <span
+    [ngClass]="{
+      'material-icons status-icon': true,
+      alarm: status === machineStatus.Alarm,
+      running: status === machineStatus.Running,
+      warning: status === machineStatus.Warning
+    }"
+    >{{ status | machineStatusToIcon }}</span
+  >
+}

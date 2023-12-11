@@ -1,0 +1,21 @@
+@use '../../../../assets/style/variables' as variables;
+
+:host {
+  display: block;
+
+  .status-icon {
+    font-size: 18px;
+
+    &.alarm {
+      color: variables.$danger-component-text-color;
+    }
+
+    &.running {
+      color: variables.$success-component-text-color;
+    }
+
+    &.warning {
+      color: variables.$warning-component-text-color;
+    }
+  }
+}

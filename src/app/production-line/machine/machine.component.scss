@@ -1,0 +1,36 @@
+@use '../../../assets/style/layout' as layout;
+@use '../../../assets/style/variables' as variables;
+
+:host {
+  @include layout.base-flex-layout();
+
+  .machine-item {
+    @include layout.base-flex-layout($align-items: center, $row-gap: 10px);
+
+    background-color: variables.$secondary-brand-color;
+    color: variables.$primary-text-color;
+    min-width: 120px;
+    padding: 20px;
+    position: relative;
+
+    &.alarm {
+      background-color: variables.$danger-component-color;
+      color: variables.$danger-component-text-color;
+    }
+
+    &.warning {
+      background-color: variables.$warning-component-color;
+      color: variables.$warning-component-text-color;
+    }
+
+    .machine-item-status {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+    }
+
+    .machine-item-icon {
+      font-size: 48px;
+    }
+  }
+}

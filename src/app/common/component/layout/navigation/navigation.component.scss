@@ -1,0 +1,5 @@
+@use '../../../../../assets/style/layout' as layout;
+
+:host {
+  @include layout.base-flex-layout();
+}
