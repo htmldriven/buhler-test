@@ -6,7 +6,7 @@ import {
   signal,
 } from '@angular/core';
 import { DateTimeComponent } from '../date-time/date-time.component';
-import { Observable, interval, tap, timer } from 'rxjs';
+import { Observable, interval, tap } from 'rxjs';
 import { DatePipeValue } from '../../type/date-time/date-pipe-value';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
