@@ -1,17 +1,15 @@
-@if (machine) {
-  <div
-    [ngClass]="{
-      'machine-item': true,
-      alarm: machine.status === machineStatus.Alarm,
-      warning: machine.status === machineStatus.Warning
-    }"
-  >
-    <app-machine-status class="machine-item-status" [status]="machine.status" />
-    @if (!iconDisabled) {
-      <span class="material-icons-outlined machine-item-icon">{{
-        machine.icon
-      }}</span>
-    }
-    <div class="machine-item-name">{{ machine.name }}</div>
-  </div>
-}
+<div
+  [ngClass]="{
+    'machine-item': true,
+    alarm: machine().status === machineStatus.Alarm,
+    warning: machine().status === machineStatus.Warning
+  }"
+>
+  <app-machine-status class="machine-item-status" [status]="machine().status" />
+  @if (!iconDisabled) {
+    <span class="material-icons-outlined machine-item-icon">{{
+      machine().icon
+    }}</span>
+  }
+  <div class="machine-item-name">{{ machine().name }}</div>
+</div>

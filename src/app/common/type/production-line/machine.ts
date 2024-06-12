@@ -11,6 +11,12 @@ export interface Machine {
    * UUID.
    */
   readonly id: string;
+  /**
+   * User-friendly name of the machine.
+   */
   readonly name: string;
+  /**
+   * Current state of the machine.
+   */
   readonly status: MachineStatus;
 }

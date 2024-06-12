@@ -1,7 +1,13 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Signal,
+  signal,
+} from '@angular/core';
 import { ProductionLineComponent } from '../../production-line/production-line.component';
 import { ProductionLineMode } from '../../common/type/production-line/production-line-mode';
 import { ProductionLineService } from '../../common/service/production-line/production-line.service';
+import { ExtractSignalType } from '../../common/type/common/signal/extract-signal-type';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,12 +18,13 @@ import { ProductionLineService } from '../../common/service/production-line/prod
   templateUrl: './production-line-page.component.html',
 })
 export class ProductionLinePageComponent {
-  readonly machines: ProductionLineComponent['machines'] =
-    this.productionLineService.machines;
+  readonly machines: Signal<
+    ExtractSignalType<ProductionLineComponent['machines']>
+  > = this.productionLineService.machines;
 
-  readonly productionLineMode: ProductionLineComponent['mode'] = signal(
-    ProductionLineMode.Overview,
-  );
+  readonly productionLineMode: Signal<
+    ExtractSignalType<ProductionLineComponent['mode']>
+  > = signal(ProductionLineMode.Overview).asReadonly();
 
   constructor(private readonly productionLineService: ProductionLineService) {}
 }

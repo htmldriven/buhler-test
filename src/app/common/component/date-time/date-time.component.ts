@@ -2,9 +2,8 @@ import { DatePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
-  Signal,
-  signal,
+  InputSignal,
+  input,
 } from '@angular/core';
 import { DatePipeFormat } from '../../type/date-time/date-pipe-format';
 import { DatePipeValue } from '../../type/date-time/date-pipe-value';
@@ -18,7 +17,10 @@ import { DatePipeValue } from '../../type/date-time/date-pipe-value';
   templateUrl: './date-time.component.html',
 })
 export class DateTimeComponent {
-  @Input() format: Signal<DatePipeFormat> = signal(undefined);
+  //#region inputs
+  readonly format: InputSignal<DatePipeFormat> =
+    input<DatePipeFormat>(undefined);
 
-  @Input({ required: true }) value: Signal<DatePipeValue> = signal(null);
+  readonly value: InputSignal<DatePipeValue> = input.required<DatePipeValue>();
+  //#endregion
 }

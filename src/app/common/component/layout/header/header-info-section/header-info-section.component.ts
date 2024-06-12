@@ -1,10 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  WritableSignal,
+  Signal,
   signal,
 } from '@angular/core';
 import { CurrentDateTimeComponent } from '../../../current-date-time/current-date-time.component';
+import { ExtractSignalType } from '../../../../type/common/signal/extract-signal-type';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,8 +16,9 @@ import { CurrentDateTimeComponent } from '../../../current-date-time/current-dat
   templateUrl: './header-info-section.component.html',
 })
 export class HeaderInfoSectionComponent {
-  readonly currentDateTimeFormat: CurrentDateTimeComponent['format'] =
-    signal('dd.MM.YYYY HH:mm');
+  readonly currentDateTimeFormat: Signal<
+    ExtractSignalType<CurrentDateTimeComponent['format']>
+  > = signal('dd.MM.YYYY HH:mm').asReadonly();
 
-  readonly username: WritableSignal<string | null> = signal('Operator');
+  readonly username: Signal<string | null> = signal('Operator').asReadonly();
 }

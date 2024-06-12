@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
+  InputSignal,
+  InputSignalWithTransform,
   booleanAttribute,
+  input,
 } from '@angular/core';
 import { MachineStatusComponent } from './machine-status/machine-status.component';
 import { MachineStatus } from '../../common/type/production-line/machine-status';
@@ -18,9 +20,16 @@ import { NgClass } from '@angular/common';
   templateUrl: './machine.component.html',
 })
 export class MachineComponent {
+  //#region constants
   readonly machineStatus: typeof MachineStatus = MachineStatus;
+  //#endregion
 
-  @Input({ required: true }) machine: Machine | undefined;
+  //#region inputs
+  readonly iconDisabled: InputSignalWithTransform<boolean, boolean | string> =
+    input<boolean, boolean | string>(false, {
+      transform: booleanAttribute,
+    });
 
-  @Input({ transform: booleanAttribute }) iconDisabled: boolean = false;
+  readonly machine: InputSignal<Machine> = input.required();
+  //#endregion
 }

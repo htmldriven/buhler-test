@@ -1,9 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
-  Signal,
-  signal,
+  InputSignal,
+  input,
 } from '@angular/core';
 import { MachineComponent } from './machine/machine.component';
 import { ProductionLineMode } from '../common/type/production-line/production-line-mode';
@@ -19,11 +18,15 @@ import { NgClass } from '@angular/common';
   templateUrl: './production-line.component.html',
 })
 export class ProductionLineComponent {
+  //#region constants
   readonly productionLineMode: typeof ProductionLineMode = ProductionLineMode;
+  //#endregion
 
-  @Input({ required: true }) mode: Signal<ProductionLineMode> = signal(
-    ProductionLineMode.Overview,
-  );
+  //#region inputs
+  readonly mode: InputSignal<ProductionLineMode> =
+    input.required<ProductionLineMode>();
 
-  @Input({ required: true }) machines: Signal<readonly Machine[]> = signal([]);
+  readonly machines: InputSignal<readonly Machine[]> =
+    input.required<readonly Machine[]>();
+  //#endregion
 }

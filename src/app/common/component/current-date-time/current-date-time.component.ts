@@ -1,14 +1,16 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
+  InputSignal,
   WritableSignal,
+  input,
   signal,
 } from '@angular/core';
 import { DateTimeComponent } from '../date-time/date-time.component';
 import { Observable, interval, tap } from 'rxjs';
 import { DatePipeValue } from '../../type/date-time/date-pipe-value';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ExtractSignalType } from '../../type/common/signal/extract-signal-type';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,13 +21,18 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './current-date-time.component.html',
 })
 export class CurrentDateTimeComponent {
+  //#region constants
   /**
    * It's probably not necessary to update at each second, but
    * rather every couple of seconds.
    */
   private static readonly dateTimeRefreshInterval: number = 5_000;
+  //#endregion
 
-  @Input() format: DateTimeComponent['format'] = signal(undefined);
+  //#region inputs
+  readonly format: InputSignal<ExtractSignalType<DateTimeComponent['format']>> =
+    input<ExtractSignalType<DateTimeComponent['format']>>(undefined);
+  //#endregion
 
   readonly currentDateTime: WritableSignal<DatePipeValue> = signal(new Date());
 

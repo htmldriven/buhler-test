@@ -6,6 +6,12 @@ import { MachineStatus } from '../../type/production-line/machine-status';
   standalone: true,
 })
 export class MachineStatusToIconPipe implements PipeTransform {
+  /**
+   * Maps the given machine status to corresponding icon name.
+   *
+   * @param value Machine status to resolve the icon name for.
+   * @returns Resolved icon name.
+   */
   transform(value: MachineStatus): string {
     switch (value) {
       case MachineStatus.Alarm:
